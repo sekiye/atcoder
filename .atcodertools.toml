@@ -1,0 +1,8 @@
+[codestyle]
+indent_type='space' # 'tab' or 'space'
+indent_width=2
+template_file='/workspaces/atcoder/my_template.cpp'
+workspace_dir='/workspaces/atcoder'
+lang='cpp' # Check README.md for the supported languages.
+[postprocess]
+exec_on_each_problem_dir='clang-format -i ./*.cpp'

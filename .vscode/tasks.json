@@ -1,0 +1,90 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "release build",
+			"command": "/usr/bin/g++-9",
+			"args": [
+				"-std=gnu++17",
+				"-I",
+				"/usr/local/ac-library",
+				"-I",
+				"/workspaces/atcoder/include",
+				"-O2",
+				"-Wall",
+				"-Wextra",
+				"-Wshadow",
+				"-DLOCAL",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}",
+				"&&",
+				"cd",
+				"${fileDirname}",
+				"&&",
+				"atcoder-tools",
+				"test",
+				"--timeout",
+				"2",
+				"-k",
+				"&&",
+				"atcoder-tools",
+				"submit",
+				"-f"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "debug build",
+			"command": "/usr/bin/g++-9",
+			"args": [
+				"-std=gnu++17",
+				"-I",
+				"/usr/local/ac-library",
+				"-I",
+				"/workspaces/atcoder/include",
+				"-O0",
+				"-ggdb3",
+				"-Wall",
+				"-Wextra",
+				"-Wshadow",
+				"-fsanitize=undefined,address",
+				"-D_GLIBCXX_DEBUG",
+				"-DLOCAL",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}",
+				"&&",
+				"cd",
+				"${fileDirname}",
+				"&&",
+				"atcoder-tools",
+				"test",
+				"--timeout",
+				"2",
+				"-k"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
