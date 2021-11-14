@@ -85,6 +85,28 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"type": "shell",
+			"label": "force submit",
+			"command": "cd",
+			"args": [
+				"${fileDirname}",
+				"&&",
+				"atcoder-tools",
+				"submit",
+				"-fu"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }
