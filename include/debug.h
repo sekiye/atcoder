@@ -2,6 +2,7 @@
 #define __DEBUG_H__
 
 #include <bits/stdc++.h>
+
 #include <iostream>
 
 using namespace std;
@@ -15,17 +16,13 @@ string to_string(tuple<A, B, C> p);
 template <typename A, typename B, typename C, typename D>
 string to_string(tuple<A, B, C, D> p);
 
-string to_string(const string &s) {
-  return '"' + s + '"';
-}
+string to_string(const string &s) { return '"' + s + '"'; }
 
-string to_string(const char *s) {
-  return to_string((string)s);
-}
+string to_string(const char *s) { return to_string((string)s); }
 
-string to_string(bool b) {
-  return (b ? "true" : "false");
-}
+string to_string(char ch) { return string(1, ch); }
+
+string to_string(bool b) { return (b ? "true" : "false"); }
 
 #ifdef ATCODER_MODINT_HPP
 template <int m>
@@ -79,18 +76,17 @@ string to_string(pair<A, B> p) {
 
 template <typename A, typename B, typename C>
 string to_string(tuple<A, B, C> p) {
-  return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";
+  return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " +
+         to_string(get<2>(p)) + ")";
 }
 
 template <typename A, typename B, typename C, typename D>
 string to_string(tuple<A, B, C, D> p) {
-  return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ", " +
-         to_string(get<3>(p)) + ")";
+  return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " +
+         to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";
 }
 
-void debug_out() {
-  cerr << endl;
-}
+void debug_out() { cerr << endl; }
 
 template <typename Head, typename... Tail>
 void debug_out(Head H, Tail... T) {

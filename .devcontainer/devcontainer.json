@@ -37,11 +37,10 @@
 	"extensions": [
 		"ms-vscode.cpptools",
 		"ms-python.python",
-		"ms-python.vscode-pylance",
-		"tabnine.tabnine-vscode"
+		"ms-python.vscode-pylance"
 	],
-	"postCreateCommand": "pip3 install atcoder-tools",
-	"postStartCommand": "pip3 install atcoder-tools --upgrade && (cd /usr/local/ac-library; git pull)",
+	"postCreateCommand": "pip3 install markupsafe==2.0.1 && pip3 install atcoder-tools",
+	"postStartCommand": "(cd /usr/local/ac-library; git pull)",
 	"remoteUser": "vscode",
 	"mounts": [
 		"source=${localEnv:HOME}/.local/share/atcoder-tools/,target=/home/vscode/.local/share/atcoder-tools/,type=bind,consistency=cached"

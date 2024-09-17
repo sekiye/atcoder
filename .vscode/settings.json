@@ -105,5 +105,6 @@
     },
     "C_Cpp.clang_format_style": "Google",
     "editor.formatOnSave": true,
-    "docker.host": ""
+    "docker.host": "",
+    "editor.tabSize": 2
 }
